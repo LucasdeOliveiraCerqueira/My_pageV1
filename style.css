@@ -1,0 +1,426 @@
+/* RESET GERAL: remove margens e paddings padrão e define a fonte base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Faz a página ocupar toda a altura da tela e evita rolagem */
+body {
+    height: 100vh;
+    background: #020617;
+    overflow: hidden;
+}
+
+/* Estrutura principal dividida em duas colunas */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Ajuste visual da imagem da logo */
+.logo-img {
+    width: 800px;
+    margin-bottom: 20px;
+}
+
+/* ========================= */
+/* LADO ESQUERDO */
+/* ========================= */
+/* Área decorativa com fundo em degradê e efeitos animados */
+.left {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background: radial-gradient(circle at 30% 30%, #1e3a8a 0%, #020617 80%);
+}
+
+/* Sobreposição com textura de pontinhos para dar efeito tecnológico */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#3b82f6 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.05;
+}
+
+/* Brilho difuso que se move na parte inferior esquerda */
+.left::after {
+    content: "";
+    position: absolute;
+    bottom: -80px;
+    left: -150px;
+
+    width: 200%;
+    height: 400px;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(59,130,246,0.4),
+        transparent 70%
+    );
+
+    filter: blur(60px);
+    animation: waveMove 8s infinite linear;
+}
+
+/* Animação do brilho difuso horizontal */
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(300px); }
+}
+
+/* Faixa luminosa que atravessa a área esquerda */
+.left::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(59,130,246,0.15),
+        transparent 60%
+    );
+
+    animation: linesMove 6s infinite linear;
+}
+
+/* Anima a faixa luminosa da esquerda para a direita */
+@keyframes linesMove {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Animação auxiliar mantida para possíveis reutilizações futuras */
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(200px); }
+}
+
+/* Conteúdo central da coluna esquerda */
+.content-left {
+    text-align: center;
+    z-index: 2;
+}
+
+/* Nome principal ou marca */
+.logo {
+    color: #38bdf8;
+    font-size: 52px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Texto secundário com espaçamento maior entre letras */
+.subtitle {
+    color: #94a3b8;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Descrição com contraste suave para leitura sobre fundo escuro */
+.description {
+    color: #cbd5f5;
+    margin-top: 25px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ========================= */
+/* LADO DIREITO */
+/* ========================= */
+/* Área do formulário de login */
+.right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #020617;
+}
+
+/* LINHA DIVISÓRIA MODERNA */
+/* Faixa vertical iluminada que separa as duas colunas */
+.right::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 6px;
+    height: 100%;
+
+    background: linear-gradient(
+        to bottom,
+        #0ea5e9,
+        #3b82f6,
+        #1e3a8a
+    );
+
+    box-shadow:
+        0 0 10px #3b82f6,
+        0 0 30px #3b82f6,
+        0 0 60px rgba(59,130,246,0.6);
+
+    animation: pulseLine 2.5s ease-in-out infinite;
+}
+
+/* Pulso de opacidade da linha divisória */
+@keyframes pulseLine {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Animação auxiliar de brilho, deixada para uso futuro */
+@keyframes glowLine {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
+
+/* ========================= */
+/* CARD LOGIN */
+/* ========================= */
+/* Card principal do formulário com cantos arredondados e sombra */
+.login-card {
+    width: 380px;
+    padding: 45px;
+    border-radius: 22px;
+    background: #f8fafc;
+
+    position: relative;
+    text-align: center;
+
+    box-shadow:
+        0 40px 80px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+    /* Contorno externo com efeito glow */
+.login-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        130deg,
+        #3b82f6,
+        transparent,
+        #60a5fa
+    );
+
+    filter: blur(12px);
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/* Brilho interno suave para dar profundidade ao card */
+.login-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0.3),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* ========================= */
+/* AVATAR */
+/* ========================= */
+/* Círculo decorativo acima do título */
+.avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+
+    margin: 0 auto 20px;
+
+    background: linear-gradient(#1e3a8a, #3b82f6);
+
+    box-shadow:
+        0 0 15px rgba(59,130,246,0.6),
+        inset 0 2px 5px rgba(255,255,255,0.3);
+}
+
+/* ========================= */
+/* TEXTOS */
+/* ========================= */
+/* Título do formulário */
+h2 {
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+/* Texto pequeno abaixo do título */
+.small {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ========================= */
+/* INPUTS */
+/* ========================= */
+/* Wrapper de cada campo para posicionar ícones e elementos internos */
+.field {
+    margin-top: 22px;
+    position: relative;
+}
+
+/* Estilo base do campo de texto */
+.field input {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 12px;
+
+    border: none;
+    outline: none;
+
+    background: #e2e8f0;
+    color: #0f172a;
+
+    transition: 0.3s;
+}
+
+/* Destaque visual quando o campo recebe foco */
+.field input:focus {
+    background: #dbeafe;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+/* Leve aumento ao passar o mouse */
+.field input:hover {
+    transform: scale(1.02);
+}
+
+/* Ícone de mostrar ou esconder senha */
+.toggle {
+    position: absolute;
+    right: 15px;
+    top: 13px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+/* Realce no ícone ao passar o mouse */
+.toggle:hover {
+    opacity: 1;
+}
+
+/* ========================= */
+/* BOTÃO */
+/* ========================= */
+/* Botão principal para entrar */
+.btn-login {
+    width: 100%;
+    margin-top: 28px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Estado hover do botão com elevação e brilho */
+.btn-login:hover {
+    transform: translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 10px 20px rgba(37,99,235,0.5),
+        0 0 20px rgba(59,130,246,0.6);
+}
+
+/* Estado pressionado do botão */
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+/* ========================= */
+/* OPÇÕES */
+/* ========================= */
+/* Linha com links auxiliares como lembrar senha */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    font-size: 12px;
+    color: #475569;
+}
+
+/* Estilo dos links auxiliares */
+.row a {
+    text-decoration: none;
+    color: #2563eb;
+    transition: 0.3s;
+}
+
+/* Sublinha o link no hover */
+.row a:hover {
+    text-decoration: underline;
+}
+
+/* ========================= */
+/* DIVISOR */
+/* ========================= */
+/* Espaço do separador entre blocos do formulário */
+.divider {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #cbd5f5;
+}
+
+.divider span {
+    padding: 0 12px;
+}
+
+/* ========================= */
+/* SUPORTE */
+/* ========================= */
+/* Texto final com opções de ajuda/suporte */
+.support {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Link de suporte */
+.support a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Destaque do link de suporte no hover */
+.support a:hover {
+    text-decoration: underline;
+}

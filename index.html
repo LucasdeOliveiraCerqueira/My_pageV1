@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortalEd - Login</title>
+
+    <!-- Fonte mais bonita (opcional, mas recomendado) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ========================= -->
+    <!-- LADO ESQUERDO -->
+    <!-- ========================= -->
+    <div class="left">
+
+        <div class="overlay"></div>
+
+        <div class="content-left">
+            <img src="logo.png" alt="PortalEd" class="logo-img">
+
+            <p class="subtitle">
+                CONHECIMENTO QUE TRANSFORMA
+            </p>
+
+            <p class="description">
+                Acesse conteúdos, acompanhe seu aprendizado<br>
+                e evolua com tecnologia e inovação.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- LADO DIREITO -->
+    <!-- ========================= -->
+    <div class="right">
+
+        <div class="login-card">
+
+            <div class="avatar"></div>
+
+            <h2>Bem-vindo de volta</h2>
+            <p class="small">Faça login para acessar sua conta</p>
+
+            <!-- USUÁRIO -->
+            <div class="field">
+                <input type="text" id="usuario" placeholder="Usuário" maxlength="20" required>
+                <small style="color: #94a3b8; font-size: 11px; margin-top: 4px; display: block;">Máximo 20 caracteres</small>
+            </div>
+
+            <!-- SENHA -->
+            <div class="field">
+                <input type="password" id="senha" placeholder="Senha" maxlength="30" required>
+                <span class="toggle" onclick="toggleSenha()">👁</span>
+                <small style="color: #94a3b8; font-size: 11px; margin-top: 4px; display: block;">Máximo 30 caracteres</small>
+            </div>
+
+            <!-- BOTÃO -->
+            <button class="btn-login">Entrar →</button>
+
+            <!-- OPÇÕES -->
+            <div class="row">
+                <label>
+                    <input type="checkbox" checked>
+                    Remember me
+                </label>
+
+                <a href="#">Esqueci a senha</a>
+            </div>
+
+            <!-- DIVISOR -->
+            <div class="divider">
+                <span>ou</span>
+            </div>
+
+            <!-- SUPORTE -->
+            <p class="support">
+                Precisa de ajuda?
+                <a href="#">Fale com o suporte</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+function toggleSenha() {
+    const input = document.getElementById("senha");
+    input.type = input.type === "password" ? "text" : "password";
+}
+</script>
+
+</body>
+</html>
