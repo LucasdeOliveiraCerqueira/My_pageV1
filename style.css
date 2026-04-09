@@ -8,15 +8,16 @@
 
 /* Faz a página ocupar toda a altura da tela e evita rolagem */
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: #020617;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Estrutura principal dividida em duas colunas */
 .container {
     display: flex;
     height: 100vh;
+    width: 100%;
 }
 
 /* Ajuste visual da imagem da logo */
@@ -423,4 +424,461 @@ h2 {
 /* Destaque do link de suporte no hover */
 .support a:hover {
     text-decoration: underline;
+}
+
+/* ========================= */
+/* RESPONSIVO - TABLET E ACIMA 1200px */
+/* ========================= */
+@media (max-width: 1200px) {
+    
+    .logo-img {
+        width: 600px;
+    }
+
+    .logo {
+        font-size: 44px;
+    }
+
+    .login-card {
+        width: 320px;
+        padding: 40px;
+    }
+
+}
+
+/* ========================= */
+/* RESPONSIVO - TABLET (768px a 1024px) */
+/* ========================= */
+@media (max-width: 1024px) {
+
+    .container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* ESQUERDA VIRA TOPO */
+    .left {
+        width: 100%;
+        height: 45vh;
+        min-height: 300px;
+    }
+
+    /* DIREITA EMBAIXO */
+    .right {
+        width: 100%;
+        height: auto;
+        min-height: 55vh;
+        padding: 30px 20px;
+        background: #020617;
+    }
+
+    /* REMOVE A LINHA DIVISÓRIA */
+    .right::before {
+        display: none;
+    }
+
+    /* ATUALIZA O BACKGROUND DO BODY */
+    body {
+        background: radial-gradient(circle at 30% 30%, #1e3a8a 0%, #020617 80%);
+    }
+
+    /* CONTEÚDO ESQUERDO */
+    .content-left {
+        padding: 20px;
+    }
+
+    .logo-img {
+        width: 280px;
+        margin-bottom: 15px;
+    }
+
+    .logo {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-top: 8px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-top: 15px;
+    }
+
+    /* CARD LOGIN */
+    .login-card {
+        width: 100%;
+        max-width: 380px;
+        padding: 35px 30px;
+        border-radius: 18px;
+    }
+
+    /* AVATAR */
+    .avatar {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto 15px;
+    }
+
+    /* TÍTULO E DESCRIÇÃO */
+    h2 {
+        font-size: 20px;
+    }
+
+    .small {
+        font-size: 13px;
+    }
+
+    /* INPUTS */
+    .field {
+        margin-top: 18px;
+    }
+
+    .field input {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .toggle {
+        right: 12px;
+        top: 11px;
+        font-size: 18px;
+    }
+
+    /* BOTÃO */
+    .btn-login {
+        padding: 14px;
+        font-size: 15px;
+        margin-top: 24px;
+    }
+
+    /* OPÇÕES */
+    .row {
+        font-size: 11px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .row label {
+        order: 2;
+    }
+
+    .row a {
+        order: 1;
+        width: 100%;
+    }
+
+}
+
+/* ========================= */
+/* RESPONSIVO - CELULAR GRANDE (480px a 768px) */
+/* ========================= */
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* ESQUERDA VIRA TOPO */
+    .left {
+        width: 100%;
+        height: 35vh;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* DIREITA EMBAIXO COM SCROLL */
+    .right {
+        width: 100%;
+        height: auto;
+        min-height: 65vh;
+        padding: 40px 20px;
+        background: #020617;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+    }
+
+    /* REMOVE A LINHA DIVISÓRIA */
+    .right::before {
+        display: none;
+    }
+
+    /* CONTEÚDO ESQUERDO */
+    .content-left {
+        padding: 15px;
+    }
+
+    .logo-img {
+        width: 200px;
+        margin-bottom: 12px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    /* CARD LOGIN */
+    .login-card {
+        width: 100%;
+        max-width: 340px;
+        padding: 30px 24px;
+        margin-top: 20px;
+        border-radius: 16px;
+    }
+
+    /* AVATAR */
+    .avatar {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 15px;
+    }
+
+    /* TÍTULOS */
+    h2 {
+        font-size: 18px;
+    }
+
+    .small {
+        font-size: 12px;
+    }
+
+    /* INPUTS */
+    .field {
+        margin-top: 16px;
+    }
+
+    .field input {
+        padding: 11px 12px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .toggle {
+        right: 10px;
+        top: 10px;
+        font-size: 16px;
+    }
+
+    /* REMOVE O SCALE NO INPUT PARA EVITAR ZOOM EM MOBILE */
+    .field input:hover {
+        transform: none;
+    }
+
+    /* BOTÃO */
+    .btn-login {
+        padding: 12px;
+        font-size: 14px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+
+    .btn-login:hover {
+        transform: none;
+    }
+
+    .btn-login:active {
+        transform: scale(0.95);
+    }
+
+    /* OPÇÕES */
+    .row {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 12px;
+        font-size: 11px;
+    }
+
+    .row a {
+        display: block;
+        text-align: center;
+    }
+
+    /* DIVISOR */
+    .divider {
+        margin: 20px 0;
+    }
+
+    /* SUPORTE */
+    .support {
+        font-size: 11px;
+    }
+
+}
+
+/* ========================= */
+/* RESPONSIVO - CELULAR PEQUENO (até 480px) */
+/* ========================= */
+@media (max-width: 480px) {
+
+    * {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* ESQUERDA - MENOR */
+    .left {
+        width: 100%;
+        height: 30vh;
+        min-height: 220px;
+    }
+
+    /* DIREITA - MAIOR */
+    .right {
+        width: 100%;
+        height: auto;
+        min-height: 70vh;
+        padding: 30px 16px;
+        background: #020617;
+    }
+
+    .right::before {
+        display: none;
+    }
+
+    /* CONTEÚDO */
+    .content-left {
+        padding: 10px;
+    }
+
+    .logo-img {
+        width: 150px;
+        margin-bottom: 8px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
+
+    .description {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-top: 10px;
+    }
+
+    /* CARD */
+    .login-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px 16px;
+        margin-top: 15px;
+        border-radius: 14px;
+    }
+
+    .login-card::before {
+        border-radius: 14px;
+    }
+
+    .login-card::after {
+        border-radius: 14px;
+    }
+
+    /* AVATAR */
+    .avatar {
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 12px;
+    }
+
+    /* TEXTOS */
+    h2 {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .small {
+        font-size: 11px;
+    }
+
+    /* INPUTS */
+    .field {
+        margin-top: 14px;
+    }
+
+    .field input {
+        padding: 10px 11px;
+        font-size: 13px;
+        border-radius: 9px;
+    }
+
+    .field input:focus {
+        box-shadow: 0 0 0 1.5px #3b82f6;
+    }
+
+    .toggle {
+        right: 9px;
+        top: 9px;
+        font-size: 14px;
+    }
+
+    /* BOTÃO */
+    .btn-login {
+        padding: 11px;
+        font-size: 13px;
+        margin-top: 18px;
+        border-radius: 9px;
+    }
+
+    /* OPÇÕES */
+    .row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: 10px;
+        font-size: 10px;
+    }
+
+    .row label,
+    .row a {
+        text-align: center;
+    }
+
+    /* DIVISOR */
+    .divider {
+        margin: 15px 0;
+        font-size: 12px;
+    }
+
+    .divider span {
+        padding: 0 8px;
+    }
+
+    /* SUPORTE */
+    .support {
+        font-size: 10px;
+    }
+
 }
